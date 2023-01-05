@@ -1,0 +1,25 @@
+{% extends "main/base.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+
+            {% csrf_token%}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Save QR</legend>
+                <h2>{{object.brand_name}} {{object.model_name}} - QR Code</h2>
+                <img src="{{object.qr_code.url}}" alt="">
+
+            </fieldset>
+
+            <div class="form-group">
+                <button class="btn btn-outline-primary" type="submit">Save</button>
+                <a class="btn btn-outline-secondary" href="{% url 'laptop-detail' object.uuid%}">Back</a>
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+{% endblock content %}

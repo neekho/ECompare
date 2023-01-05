@@ -1,0 +1,45 @@
+{% extends "main/base.html" %}
+
+
+{% block feature %}
+
+    <section class="jumbotron text-center">
+        <div class="container">
+        <h1 class="jumbotron-heading">Album example</h1>
+        <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. 
+            Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+        <p>
+            <a href="#" class="btn btn-outline-primary">Shop</a>
+
+        </p>
+        </div>
+    </section>
+
+
+{% endblock feature %}
+
+
+{% block content %}
+
+
+    <form 
+    class="centred ui form"
+    hx-get="{% url 'search' %}" 
+    hx-target="#search-results"
+    hx-swap="outerHTML"
+    hx-trigger="submit, input delay:0.3s"
+    
+    >
+        <input type="text" name="search" placeholder="Search..." value="{{ search }}">
+    </form>
+
+
+
+    {% include 'main/search_results.html' %}
+
+
+
+
+{% endblock content %}
+
+

@@ -1,0 +1,47 @@
+{% extends "main/base.html" %}
+
+{% load humanize%}
+
+{% block content %}
+    <article class="media content-section">
+        <img class="rounded-circle article-img" src="{{ object.retailer.retailer_image.url}}" alt="">
+        <div class="media-body">
+        <div class="article-metadata">
+
+            <a class="mr-2" href="{% url 'retailer-posts' object.retailer.retailer_name %}">{{ object.retailer.retailer_name }}</a>
+            <!-- <h2 class="article-title">{{ object.retailer.retailer_name }}</h2> -->
+
+            
+
+            {% if user.retailerprofile == object.retailer%} 
+                <div>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'compare' %}">Compare</a>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'laptop-qr' object.uuid %}">QR Code</a>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{object.laptop_url}}">Details</a>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'laptop-update' object.uuid%}">Update</a>
+                    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'laptop-delete' object.uuid%}">Archive</a>
+                </div>  
+
+            {% else %}
+
+                <div>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'compare' %}">Compare</a>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{object.laptop_url}}">Details</a>
+                </div>
+
+            {% endif %}
+        </div>
+        <h2 class="article-title" name="item">{{ object.model_name }}</h2>
+        <img src="{{ object.laptop_image.url}}" alt="">
+        <p class="article-content">{{ object.specs }}</p>
+        <p class="font-weight-bold article-content">PHP {{ object.price|intcomma }}</p>
+
+
+
+
+
+
+        </div>
+    </article>  
+    
+{% endblock content%}

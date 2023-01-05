@@ -1,0 +1,27 @@
+{% extends "main/base.html" %}
+{% load humanize %}
+
+
+{% block content %}
+
+    <h1 class="mb-3">Laptops by: {{ view.kwargs.retailer_name }}</h1>
+
+    {% for laptop in laptop%}
+        <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ laptop.retailer.retailer_image.url}}" alt="">
+            <div class="media-body">
+            <div class="article-metadata">
+
+                <a class="mr-2" href="{% url 'retailer-posts' laptop.retailer.retailer_name %}">{{ laptop.retailer.retailer_name }}</a>
+                <h2><a class="article-title" href="{% url 'laptop-detail' laptop.uuid %}"> {{laptop.brand_name}} {{ laptop.model_name }} </a></h2>
+            </div>
+            <img src="{{ laptop.laptop_image.url}}" alt="">
+            <p class="font-weight-bold article-content">PHP {{ laptop.price|intcomma}}</p>
+            </div>
+        </article>
+
+
+    {% endfor %}
+
+
+{% endblock content%}
