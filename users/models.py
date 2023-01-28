@@ -36,18 +36,8 @@ class User(AbstractUser):
             
         if not self.pk:
             self.role = self.base_role
-            print(self.role)
+            # print(self.role)
         super().save(*args, **kwargs)
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -66,9 +56,6 @@ class Customer(User):
 
     base_role = User.Role.CUSTOMER
 
-    print(base_role)
-
-
     customer = CustomerManager()
  
     class Meta:
@@ -77,8 +64,6 @@ class Customer(User):
 
 
     
-
-
 class CustomerProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     
@@ -113,31 +98,6 @@ class CustomerProfile(models.Model):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class RetailerManager(BaseUserManager):
     def get_queryset(self, *args, **kwargs):
         results = super().get_queryset(*args, **kwargs)
@@ -149,14 +109,11 @@ class Retailer(User):
 
     base_role = User.Role.RETAILER
 
-    print(base_role)
-
     retailer = RetailerManager()
  
     class Meta:
         proxy = True
     
-
 
 
 class RetailerProfile(models.Model):
@@ -171,10 +128,8 @@ class RetailerProfile(models.Model):
 
     retailer_image = models.ImageField(default='default-profile.jpg', upload_to='retailer_pics')
 
-
     def __str__(self):
         return f'{self.retailer.username} Retailer Profile'
-
 
     def save(self, *args, **kwargs):
         super().save()
@@ -188,13 +143,5 @@ class RetailerProfile(models.Model):
             img.save(self.retailer_image.path)
 
     
-
-
-
-
-
-
-
-
 
 

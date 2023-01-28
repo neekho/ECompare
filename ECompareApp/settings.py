@@ -28,6 +28,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.0.25', '127.0.0.0', '0.0.0.0', 'localhost']
 
+INTERNAL_IPS = [
+
+    '127.0.0.0',
+    '127.0.0.1',
+]
 
 # Application definition
 
@@ -39,6 +44,8 @@ INSTALLED_APPS = [
 
     'crispy_forms',
 
+
+    'debug_toolbar',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -54,6 +61,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -142,6 +150,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+
+LOGIN_URL = 'login'
 
 LOGIN_REDIRECT_URL = 'main-home' # leads users to the main page after loggin in 
 

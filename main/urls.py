@@ -38,7 +38,7 @@ urlpatterns = [
 # ** to do
 # ** populate laptop models (change price field into integer) OK
 # ** comparison logic MEDJ OK
-# ** camera?
+
 
 # ** measure query return time for chapter 4
 # ** re-write chapter 1 (scope)

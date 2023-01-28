@@ -5,6 +5,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from . models import Laptop
 from users.models import Retailer, RetailerProfile
 
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -12,7 +14,7 @@ from users.models import Retailer, RetailerProfile
 
 
 
-
+@login_required
 def shop_view(request):
 
     posts, search = _search_laptop(request)

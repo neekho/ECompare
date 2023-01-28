@@ -21,7 +21,7 @@ class UserUpdateForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['username', 'email'] #!!!!!!!!
 
 
 
@@ -44,6 +44,9 @@ class CustomerProfileUpdateForm(forms.ModelForm):
 
 
 
+
+
+
 # for changing retailer profile pics
 class RetailerProfileUpdateForm(forms.ModelForm):
 
@@ -51,4 +54,4 @@ class RetailerProfileUpdateForm(forms.ModelForm):
 
     class Meta:
         model = RetailerProfile
-        fields = ['retailer_name', 'website_url', 'retailer_image', ]
+        fields = ['retailer_name', 'website_url', 'retailer_image']
