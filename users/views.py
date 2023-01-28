@@ -9,6 +9,7 @@ from users.forms import UserRegisterForm, UserUpdateForm, CustomerProfileUpdateF
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.forms import PasswordChangeForm
 
+from django.contrib.messages.views import SuccessMessageMixin
 
 # Create your views here.
 
@@ -37,75 +38,45 @@ def register(request):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 @login_required
 def profile(request):
 
-    if request.user.customerprofile:
-        if request.method == 'POST':
-            
-            user_update = UserUpdateForm(request.POST, instance=request.user)
+    if request.method == 'POST':
 
-            customer_profile_update = CustomerProfileUpdateForm(request.POST, request.FILES, instance=request.user.customerprofile)
+        user_update = UserUpdateForm(request.POST, instance=request.user)
 
-            if user_update.is_valid() and customer_profile_update.is_valid():
+        customer_profile_update = CustomerProfileUpdateForm(request.POST, request.FILES, instance=request.user.customerprofile)
 
-                user_update.save()
-                customer_profile_update.save()
+        if user_update.is_valid() and customer_profile_update.is_valid():
+            user_update.save()
+            customer_profile_update.save()
 
-                messages.success(request, f'Account has been updated')
-                return redirect('profile')
-            
-
-
-        else:
-
-
-            user_update = UserUpdateForm(instance=request.user)
-
-            customer_profile_update = CustomerProfileUpdateForm(instance=request.user.customerprofile)
-
-        context = {
-            'user_update': user_update,
-            'customer_profile_update': customer_profile_update
-        }
-
-        return render(request, 'users/profile.html', context)
-
-
-
-    
-    elif request.user.retailerprofile:
-        if request.method == 'POST':
-
-
-            user_update = UserUpdateForm(request.POST, instance=request.user)
-
-            retailer_profile_update = RetailerProfileUpdateForm(request.POST, request.FILES, instance=request.user.retailerprofile)
-
-            if user_update.is_valid() and retailer_profile_update.is_valid():
-
-                user_update.save()
-                retailer_profile_update.save()
-
-                messages.success(request, f'Retail account has been updated')
-                return redirect('retailer-profile')
-
-        else:
-            user_update = UserUpdateForm(instance=request.user)
-
-            retailer_profile_update = RetailerProfileUpdateForm(instance=request.user.retailerprofile)
-
-        context = {
-            'user_update': user_update,
-            'retailer_profile_update': retailer_profile_update
-        }
-
-        return render(request, 'users/retailer.html', context)
+            messages.success(request, f'Account has been updated')
+            return redirect('profile')
 
 
     else:
-        return render(request, 'users/profile.html', context)
+        user_update = UserUpdateForm(instance=request.user)
 
+        customer_profile_update = CustomerProfileUpdateForm(instance=request.user.customerprofile)
+
+    context = {
+        'user_update': user_update,
+        'customer_profile_update': customer_profile_update
+    }
+
+    return render(request, 'users/profile.html', context)
 
 
 
@@ -143,6 +114,8 @@ def retailer_profile(request):
     return render(request, 'users/retailer.html', context)
 
 
-class PasswordsChangeView(PasswordChangeView):
+class PasswordsChangeView(SuccessMessageMixin, PasswordChangeView):
     form_class = PasswordChangeForm
-    success_url = reverse_lazy('profile')
+    success_message = 'Password Updated!'
+    success_url = reverse_lazy('main-home')
+

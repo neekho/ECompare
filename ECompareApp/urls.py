@@ -33,7 +33,7 @@ urlpatterns = [
 
     path('profile/', user_views.profile, name='profile'),
  
-    # path('retailer/', user_views.retailer_profile, name='retailer-profile'), #!!!
+    path('retailer/', user_views.retailer_profile, name='retailer-profile'), #!!!
 
     path('', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'), # HOME PAGE = LOGIN
     
