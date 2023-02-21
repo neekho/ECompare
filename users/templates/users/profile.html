@@ -25,14 +25,17 @@
                 <legend class="border-bottom mb-4">Update Information</legend>
                 {{ user_update |crispy }}
                 {{ customer_profile_update |crispy }}
+                <a class="border-bottom mb-4" href="{% url 'change-password' %}">Change Password</a>
             </fieldset>
 
             <div class="form-group">
                 <button class="btn btn-outline-info " type="submit">Update</button>
-                <button class="btn btn-outline-info " href="{% url 'change-password' %}">Change Password</button>
+                
 
             </div>
+
         </form>
+
 
        
 
