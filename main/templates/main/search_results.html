@@ -1,28 +1,37 @@
 
 {% load humanize%}
+
+    
 <div id="search-results">
     {% if posts %}
     
         {% for posts in posts%}
-        <article class="media content-section">
-            <img class="rounded-circle article-img" src="{{posts.retailer.retailer_image.url}}" alt="">
-            <div class="media-body">
-            <div class="article-metadata">
 
-                <a class="mr-2" href="{% url 'retailer-posts' posts.retailer.retailer_name %}"> {{ posts.retailer.retailer_name }}</a>
-                
+            <section id="laptops">
+
+                <article class="media content-section">
+                    <img class="rounded-circle article-img" src="{{posts.retailer.retailer_image.url}}" alt="">
+                    <div class="media-body">
+                    <div class="article-metadata">
+    
+                        <a class="mr-2" href="{% url 'retailer-posts' posts.retailer.retailer_name %}"> {{ posts.retailer.retailer_name }}</a>
+                        
+    
+    
+                    </div>
+                    <h2><a class="article-title" href="{% url 'laptop-detail' posts.uuid %}"> {{posts.brand_name}} {{ posts.model_name }} </a></h2>
+    
+                    <img class="rounded mx-auto d-block" href="{% url 'laptop-detail' posts.uuid %}" src="{{ posts.laptop_image.url}}" alt="">
+    
+                    
+    
+                    <p class="font-weight-bold article-content">PHP {{ posts.price|intcomma }}</p>
+                    </div>
+                </article>
 
 
-            </div>
-            <h2><a class="article-title" href="{% url 'laptop-detail' posts.uuid %}"> {{posts.brand_name}} {{ posts.model_name }} </a></h2>
-
-            <img class="rounded mx-auto d-block" href="{% url 'laptop-detail' posts.uuid %}" src="{{ posts.laptop_image.url}}" alt="">
-
-            
-
-            <p class="font-weight-bold article-content">PHP {{ posts.price|intcomma }}</p>
-            </div>
-        </article>
+            </section>
+          
         {% endfor %} 
     
     {% else %}
