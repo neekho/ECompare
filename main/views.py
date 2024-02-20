@@ -7,13 +7,6 @@ from users.models import Retailer, RetailerProfile
 
 from django.contrib.auth.decorators import login_required
 
-
-
-# Create your views here.
-
-
-
-
 @login_required
 def shop_view(request):
 
@@ -23,8 +16,6 @@ def shop_view(request):
         'posts': posts,
         'search': search
     }
-
-
 
     return render(request, 'main/laptops.html', context)
 
@@ -40,8 +31,6 @@ def _search_laptop(request):
 
 
     return posts, search or ""
-
-
 
 def list_search_view(request):
     posts, search = _search_laptop(request)
@@ -63,12 +52,7 @@ def compare(request):
         'posts': comparisons
     }
 
-
-    
-
     return render(request, 'main/comparison.html', context)
-
-
 
 
 class LaptopListView(ListView):
@@ -76,10 +60,6 @@ class LaptopListView(ListView):
     template_name = 'main/laptops.html'
     context_object_name = 'items'
     # ordering = ['-price']
-
-
-
-
 
 class LaptopDetailView(DetailView):
     model = Laptop
@@ -89,8 +69,6 @@ class LaptopDetailView(DetailView):
 class LaptopCreateView(LoginRequiredMixin, CreateView):
     model = Laptop
     fields = ['brand_name', 'model_name', 'laptop_image', 'price', 'specs', 'laptop_url']
-
-
 
 
     def form_valid(self, form):
