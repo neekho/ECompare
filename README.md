@@ -44,7 +44,7 @@ ________________________________________________________________________________
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 
-This is for performing CRUD operations in relation to managing students in a given organization. Currently the main focus of the project is to build a RESTful API with JWT. Addition of front-end will began soon, along with the integration of all API functions.
+
 
 Features:
 * Helpful error messages when a bad request happens.
@@ -65,8 +65,8 @@ Features:
 * [![Python][Python.org]][Python-url]
 * [![Django Restframework][Django-rest-framework.org]][Drf-url]
 * [![SQLite][Sqlite.org]][Sqlite-url]
-<!--* [![Bootstrap][Bootstrap.com]][Bootstrap-url] -->
-<!--* [![JQuery][JQuery.com]][JQuery-url] -->
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![JQuery][JQuery.com]][JQuery-url] 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -93,11 +93,11 @@ _Once installed, open a command prompt, choose your directory wherein you want t
 
 1. Clone the repo
    ```sh
-   C:\Users\PC> git clone https://github.com/neekho/CEU-Student-Enrollement.git
+   C:\Users\PC> git clone https://github.com/neekho/ECompare.git
    ```
 2. Go to the project folder
    ```sh
-   C:\Users\PC> cd ceu
+   C:\Users\PC> cd ECompare
    ```
 3. Create a superuser _Provide the neccessary information when prompt._
    ```sh
