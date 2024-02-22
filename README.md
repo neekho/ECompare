@@ -148,17 +148,25 @@ ________________________________________________________________________________
 
 <h3>Users</h3>
 
-* [Register](http://localhost:8000/register){:target="_blank"}
-* [Login](http://localhost:8000/){:target="_blank"}
-* [Logout](http://localhost:8000/logout) 
-* [Profile](http://localhost:8000/profile) 
-* [Change Password](http://localhost:8000/password  ) 
+Please keep in mind, clicking on the link does not open a new tab in whatever web browser you are using, GitHub doesn't support using HTML within Markdown directly, including the {target="_blank"} attribute for links. GitHub sanitizes HTML for security reasons.
+
+* [Register](http://localhost:8000/register) _Register first before you can access the main page._
+* [Login](http://localhost:8000/) _A login promp will be displayed, enter your credentials._
+* [Logout](http://localhost:8000/logout) _If logged in, your account will be signed out._
+* [Profile](http://localhost:8000/profile)  _Displays user content._
+* [Change Password](http://localhost:8000/password  ) _Change or update your password._
 
 <h3>Shop</h3>
 
-* [Shop](http://localhost:8000/shop) 
+* [Shop](http://localhost:8000/shop) _Displays all existing products within the application_
+* [Product by ID](http://localhost:8000/laptop/1/) _- http://localhost:8000/<str:pk> Displays a single page for a product_
+* [Product Update](http://localhost:8000/laptop/1/update/) _- http://localhost:8000/<str:pk> For updating the provided product id_
+* [Product Archive](http://localhost:8000/laptop/1/delete/) _- http://localhost:8000/<str:pk> For archiving a product with the supplied id_
 
-<h3>Shop</h3>
+
+<h3>Misc</h3>
+
+* [About](http://localhost:8000/about) _Commendation of insturctors_
 
 
 
@@ -173,7 +181,7 @@ ________________________________________________________________________________
 ## Roadmap
 
 - [ ] Deployment
-
+- [ ] Modeling 
 - [ ] Card UI in home page
 
 
