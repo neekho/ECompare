@@ -118,37 +118,14 @@ _Once the local surver is running, open up a browser and go to http://localhost:
 
 ___________________________________________________________________________________________________
 
-### API Routes
-
-<h3>Function based views</h3>
-Refer here for all the list of available routes in the API. You may use Postman in testing the endpoints or the built-in browseable API.
-Keep in mind, this is for all the function based view endpoints.
-
-* [All Routes](http://localhost:8000/api/overview) _Returns all possible routess in JSON format_
-* [Student List](http://localhost:8000/api/students)  _See all existing students in the database._
-* [Single Object Student](http://localhost:8000/api/<id>) _Provide a student id at the end of this url or else this will result in a 404._
-* [Create Student](http://localhost:8000/api/add)  _Create a student that will be save in the SQLite database._
-* [Update Student](http://localhost:8000/api/update<id>)  _Update existing student data. Provide a student id at the end of this url._
-* [Delete Student](http://localhost:8000/api/delete<id>)  _Delete an existing student. Provide a student id at the end of this url._
-
-
-<h3>Class based views</h3>
- You may use Postman in testing the endpoints or the built-in browseable API. Do not forget to change the HTTP method to your desire outcome.
-
-* [All Students or Create a Student](http://localhost:8000/api/cbv/students) _For returning all students, and adding a student. Only signed users can add a student with this route._
-* [Single Object Student Update, and Delete](http://localhost:8000/api/cbv<id>) _For returning the matching student with the provided id num, updating it, or deleting that student. Provide a student id at the end of this url or else this will result in a 404._
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-___________________________________________________________________________________________________
 
 ### Front-end Routes
 
 <h3>Users</h3>
 
 Please keep in mind, clicking on the link does not open a new tab in whatever web browser you are using, GitHub doesn't support using HTML within Markdown directly, including the {target="_blank"} attribute for links. GitHub sanitizes HTML for security reasons.
+
+All routes listed below are for both users and retailers.
 
 * [Register](http://localhost:8000/register) _Register first before you can access the main page._
 * [Login](http://localhost:8000/) _A login promp will be displayed, enter your credentials._
@@ -157,16 +134,25 @@ Please keep in mind, clicking on the link does not open a new tab in whatever we
 * [Change Password](http://localhost:8000/password  ) _Change or update your password._
 
 <h3>Shop</h3>
+Users and retailers will be able to access these routes.
 
 * [Shop](http://localhost:8000/shop) _Displays all existing products within the application_
-* [Product by ID](http://localhost:8000/laptop/1/) _- http://localhost:8000/<str:pk> Displays a single page for a product_
-* [Product Update](http://localhost:8000/laptop/1/update/) _- http://localhost:8000/<str:pk> For updating the provided product id_
-* [Product Archive](http://localhost:8000/laptop/1/delete/) _- http://localhost:8000/<str:pk> For archiving a product with the supplied id_
+* [Compare](http://localhost:8000/compare) _Compare two existing products_
+* [Retailer Profile](http://localhost:8000/retailer/<str:name>) _Displays all existing products within the application_
+* [Product by ID](http://localhost:8000/laptop/1/) _- http://localhost:8000/<str:pk>/ Displays a single page for a product_
+
+
+<h3>Retailer</h3>
+You must be logged in as a retailer, to have the priveleges listed below.
+
+* [Product Creation](http://localhost:8000/manage/new) _Create a product._
+* [Product Update](http://localhost:8000/laptop/1/update/) _- http://localhost:8000/<str:pk>/ For updating the provided product id_
+* [Product Archive](http://localhost:8000/laptop/1/delete/) _- http://localhost:8000/<str:pk>/ For archiving a product with the supplied id_
 
 
 <h3>Misc</h3>
 
-* [About](http://localhost:8000/about) _Commendation of insturctors_
+* [About](http://localhost:8000/about/) _Commendation of insturctors_
 
 
 
