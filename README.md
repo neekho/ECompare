@@ -145,9 +145,21 @@ Keep in mind, this is for all the function based view endpoints.
 ___________________________________________________________________________________________________
 
 ### Front-end Routes
-* [Home](http://localhost:8000/home) _You will be required to sign in first before you can have access to the home page._
-* [Login](http://localhost:8000/login) 
+
+<h3>Users</h3>
+
+* [Register](http://localhost:8000/register) 
+* [Login](http://localhost:8000/) 
 * [Logout](http://localhost:8000/logout) 
+* [Profile](http://localhost:8000/profile) 
+* [Change Password](http://localhost:8000/password  ) 
+
+<h3>Shop</h3>
+
+* [Shop](http://localhost:8000/shop) 
+
+<h3>Shop</h3>
+
 
 
 
