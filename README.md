@@ -148,8 +148,8 @@ ________________________________________________________________________________
 
 <h3>Users</h3>
 
-* [Register](http://localhost:8000/register) 
-* [Login](http://localhost:8000/) 
+* [Register](http://localhost:8000/register){:target="_blank"}
+* [Login](http://localhost:8000/){:target="_blank"}
 * [Logout](http://localhost:8000/logout) 
 * [Profile](http://localhost:8000/profile) 
 * [Change Password](http://localhost:8000/password  ) 
